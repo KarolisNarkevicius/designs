@@ -2,7 +2,6 @@
 <div class="wrapper" style="height: auto; min-height: 100%;">
 
     <header class="main-header">
-
         <!-- Logo -->
         <a href="#" class="logo">
             <span class="logo-mini"><b>P</b></span>
@@ -13,7 +12,6 @@
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-
         </nav>
     </header>
     <aside class="main-sidebar">
@@ -41,8 +39,10 @@
     </aside>
 
     <div class="content-wrapper" style="min-height: 960px;">
+        <div class="content">
+            @include('adminltev2.edit')
+        </div>
 
-        @include('adminltev2.edit')
 
     </div>
 
