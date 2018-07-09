@@ -18,6 +18,20 @@ $factory->define(App\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+        'book' => factory(App\Book::class)->make(),
+        'books' => factory(App\Book::class, 3)->make(),
+        'textarea' => $faker->name,
+        'radio' => 'radio',
+        'checkbox' => $faker->boolean,
+        'date' => $faker->date('Y-m-d'),
+        'datetime' => $faker->dateTime('now')->format('Y-m-d H:i:s'),
+        'time' => $faker->time('H:i:s'),
+        'file' => 'file',
+        'photo' => 'photo',
+        'money' => $faker->randomNumber(),
+        'number' => $faker->randomNumber(),
+        'float' => $faker->randomNumber(),
+        'enum' => 'enum',
+        'location_address' => $faker->randomNumber(),
     ];
 });

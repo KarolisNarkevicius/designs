@@ -26,4 +26,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getFilePathAttribute()
+    {
+        return $this->file;
+    }
+
+    public function getPhotoPathAttribute()
+    {
+        return $this->photo;
+    }
+
+    public function getPhotoThumbAttribute()
+    {
+        return $this->photo;
+    }
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'user_id');
+    }
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'user_book');
+    }
 }

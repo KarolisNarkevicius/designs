@@ -18,6 +18,12 @@
     {{--DATE/TIME--}}
     @include('adminltev2.libs.bootstrap-datepicker-css')
 
+    {{--DATATABLES--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap.min.css">
+    {{--ADITIONAL CSS--}}
+    @include('adminltev2.datatables.style')
+
+
     @yield('styles')
 
 </head>
@@ -36,6 +42,21 @@
 {{--DATE/TIME--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 @include('adminltev2.libs.bootstrap-datepicker-js')
+
+{{--DATATABLES--}}
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+<script src="//cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script> {{--PRINT--}}
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script> {{--COLVIS--}}
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script> {{--PDF--}}
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script> {{--PDF--}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> {{--EXCEL--}}
+<script src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script> {{--SELECT ROW--}}
+
 
 
 

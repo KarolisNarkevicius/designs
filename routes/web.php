@@ -12,6 +12,7 @@
 */
 
 use Carbon\Carbon;
+use Yajra\DataTables\Facades\DataTables;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +48,75 @@ Route::get('/v2', function () {
         ]
     ]);
 });
+
+Route::get('/users', function () {
+    $table = Datatables::of(factory(App\User::class, 50)->make());
+
+    $table->addColumn('actions', '&nbsp;');
+
+    $table->editColumn('actions', function ($row) {
+        return view('adminltev2.datatables.actions');
+    });
+
+    $table->editColumn('name', function ($row) {
+        return $row->name ? $row->name : '';
+    });
+    $table->editColumn('book.name', function ($row) {
+        return $row->book ? $row->book->name : '';
+    });
+    $table->editColumn('books.name', function ($row) {
+        return view('adminltev2.datatables.belongsToManyField', ['items' => $row->books, 'key' => 'name'])->render();
+    });
+    $table->editColumn('email', function ($row) {
+        return $row->email ? $row->email : '';
+    });
+    $table->editColumn('textarea', function ($row) {
+        return $row->textarea ? $row->textarea : '';
+    });
+    $table->editColumn('radio', function ($row) {
+        return $row->radio ? $row->radio : '';
+    });
+    $table->editColumn('checkbox', function ($row) {
+        return view('adminltev2.datatables.checkbox', ['checked' => $row->checkbox]);
+    });
+    $table->editColumn('date', function ($row) {
+        return $row->date ? $row->date : '';
+    });
+    $table->editColumn('datetime', function ($row) {
+        return $row->datetime ? $row->datetime : '';
+    });
+    $table->editColumn('time', function ($row) {
+        return $row->time ? $row->time : '';
+    });
+    $table->editColumn('file', function ($row) {
+        return view('adminltev2.datatables.file', ['path' => $row->file]);
+    });
+    $table->editColumn('photo', function ($row) {
+        return view('adminltev2.datatables.photo', ['path' => $row->photo, 'thumb' => $row->photo_thumb]);
+    });
+    $table->editColumn('password', function ($row) {
+        return '----';
+    });
+    $table->editColumn('money', function ($row) {
+        return $row->money ? $row->money : '';
+    });
+    $table->editColumn('number', function ($row) {
+        return $row->number ? $row->number : '';
+    });
+    $table->editColumn('float', function ($row) {
+        return $row->float ? $row->float : '';
+    });
+    $table->editColumn('enum', function ($row) {
+        return $row->enum ? $row->enum : '';
+    });
+    $table->editColumn('location', function ($row) {
+        return $row->location ? $row->location : '';
+    });
+
+    $table->rawColumns(['actions', 'books.name', 'checkbox', 'file', 'photo']);
+
+    return $table->make(true);
+})->name('users.index');
 
 Route::get('/v3', function () {
     return view('adminltev3.app', [
