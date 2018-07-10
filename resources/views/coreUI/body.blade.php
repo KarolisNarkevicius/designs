@@ -29,7 +29,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <i class="nav-icon icon-list"></i> Item 2
-
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="nav-icon icon-list"></i> Item 3
                             </a>
                         </li>
                     </ul>
@@ -50,6 +54,7 @@
 
         <div style="padding-top: 20px" class="container-fluid">
 
+            @include('coreUI.index')
             @include('coreUI.edit')
 
         </div>

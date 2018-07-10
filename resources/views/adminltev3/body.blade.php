@@ -73,6 +73,7 @@
     <div class="content-wrapper" style="min-height: 917px;">
         <!-- Main content -->
         <section class="content" style="padding-top: 20px">
+            @include('adminltev3.index')
             @include('adminltev3.edit')
         </section>
         <!-- /.content -->
